@@ -1,0 +1,115 @@
+/* ===== terms.css - עיצוב ייחודי לדף תנאי ההשכרה ===== */
+
+/* ---------- צעדים: flex + מונה CSS ---------- */
+.steps {
+  list-style: none;
+  display: flex;
+  gap: 2%;
+  counter-reset: step;
+}
+
+.steps li {
+  flex: 1;
+  position: relative;
+  counter-increment: step;
+  padding: 3rem 4% 4%;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  top: 0.7rem;
+  right: 50%;
+  transform: translateX(50%);
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  border-radius: 50%;
+  background: var(--wine);
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.steps li:not(:last-child)::after {
+  content: "‹";
+  position: absolute;
+  top: 40%;
+  left: -3%;
+  color: var(--gold);
+  font-size: 1.8rem;
+}
+
+.steps h3 {
+  color: var(--wine);
+}
+
+/* ---------- מסלולים ---------- */
+.plans {
+  display: flex;
+  gap: 2%;
+}
+
+.plans article {
+  flex: 1;
+  padding: 4%;
+  text-align: center;
+  background: linear-gradient(160deg, var(--blush), #fff);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  transition: transform var(--speed);
+}
+
+.plans article:hover {
+  transform: scale(1.04);
+}
+
+.plans h3 {
+  font-family: "Frank Ruhl Libre", serif;
+  color: var(--wine);
+}
+
+.plans .price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* ---------- שאלות נפוצות ---------- */
+details {
+  background: #fff;
+  border-radius: 8px;
+  border-right: 4px solid var(--gold);
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.6rem;
+  box-shadow: var(--shadow);
+}
+
+details[open] {
+  border-right-color: var(--wine);
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--wine);
+}
+
+details p {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .steps,
+  .plans {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .steps li:not(:last-child)::after {
+    display: none;
+  }
+}

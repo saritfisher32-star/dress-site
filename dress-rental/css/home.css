@@ -1,0 +1,91 @@
+/* ===== home.css - עיצוב ייחודי לדף הבית ===== */
+
+main > section:first-child {
+  background: linear-gradient(135deg, var(--blush), #fff);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 4%;
+  box-shadow: var(--shadow);
+}
+
+main > section:first-child .btn {
+  margin-top: 1rem;
+}
+
+/* ---------- יתרונות: flex ---------- */
+.highlights ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+}
+
+.highlights li {
+  flex: 1 1 45%;
+  margin-bottom: 2%;
+  padding: 3%;
+  background: #fff;
+  border-radius: var(--radius);
+  border-top: 4px solid var(--gold);
+  box-shadow: var(--shadow);
+  transition: transform var(--speed);
+}
+
+.highlights li:hover {
+  transform: translateY(-4px);
+}
+
+.highlights li:nth-child(odd) {
+  border-top-color: var(--wine);
+}
+
+.highlights li strong {
+  display: block;
+  color: var(--wine);
+}
+
+/* ---------- תצוגה מקדימה: flex + filter + transform ---------- */
+.preview {
+  display: flex;
+  gap: 3%;
+}
+
+.preview figure {
+  flex: 1;
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.preview img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  filter: saturate(0.85);
+  transition: transform 0.5s, filter 0.5s;
+}
+
+.preview figure:hover img {
+  transform: scale(1.06);
+  filter: saturate(1.2);
+}
+
+.preview figcaption {
+  padding: 4%;
+  font-weight: 500;
+  color: var(--wine);
+}
+
+@media (max-width: 768px) {
+  .highlights li {
+    flex-basis: 100%;
+  }
+
+  .preview {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,84 @@
+/* ===== collection.css - עיצוב ייחודי לדף הקולקציה ===== */
+
+/* נושא חדש 2: פריסת גריד */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3%;
+}
+
+.gallery article {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 5%;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform var(--speed), box-shadow var(--speed);
+}
+
+.gallery article:hover {
+  transform: translateY(-6px) rotate(-0.6deg);
+  box-shadow: 0 10px 22px rgba(69, 16, 31, 0.25);
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.6rem;
+}
+
+.gallery h3 {
+  font-family: "Frank Ruhl Libre", serif;
+  color: var(--wine);
+  font-size: 1.3rem;
+}
+
+.gallery article p:nth-of-type(2) {
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+.gallery .price {
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.gallery .btn {
+  margin-top: auto;
+}
+
+/* סימון "חדש" על השמלה הראשונה, בעזרת פסאודו-אלמנט */
+.gallery article:first-child {
+  position: relative;
+}
+
+.gallery article:first-child::before {
+  content: "חדש";
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  padding: 0.1rem 0.7rem;
+  background: var(--gold);
+  color: var(--wine-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 20px;
+}
+
+@media (max-width: 992px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}

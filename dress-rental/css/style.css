@@ -1,0 +1,258 @@
+/* ===== style.css - הגדרות משותפות לכל דפי האתר ===== */
+
+/* נושא חדש 1: משתני CSS */
+:root {
+  --wine: #6d1a36;
+  --wine-dark: #45101f;
+  --gold: #c9a24b;
+  --cream: #fbf6ef;
+  --blush: #f3e3e3;
+  --ink: #2b2023;
+  --radius: 12px;
+  --shadow: 0 4px 14px rgba(69, 16, 31, 0.15);
+  --speed: 0.3s;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  direction: rtl;
+  font-family: "Heebo", Arial, sans-serif;
+  background-color: var(--cream);
+  color: var(--ink);
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- header ---------- */
+header {
+  background: linear-gradient(135deg, var(--wine-dark), var(--wine));
+  color: #fff;
+  text-align: center;
+  padding: 2.5% 3%;
+  border-bottom: 4px solid var(--gold);
+}
+
+header h1 {
+  font-family: "Frank Ruhl Libre", serif;
+  font-size: 2.6rem;
+  letter-spacing: 1px;
+}
+
+header h1::after {
+  content: "";
+  display: block;
+  width: 12%;
+  height: 2px;
+  margin: 0.4rem auto 0;
+  background: var(--gold);
+}
+
+header p {
+  color: var(--blush);
+  font-size: 1.1rem;
+}
+
+/* ---------- פריסה: main + aside (flex) ---------- */
+.layout {
+  display: flex;
+  flex: 1;
+  gap: 2%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2% 3%;
+}
+
+.layout > main {
+  flex: 1;
+  min-width: 0;
+}
+
+.layout > aside {
+  flex: 0 0 22%;
+  order: -1; /* בעברית הצד הימני הוא ההתחלה: התפריט מופיע מימין */
+  align-self: flex-start;
+  background: var(--wine);
+  border-radius: var(--radius);
+  padding: 4% 3%;
+  box-shadow: var(--shadow);
+}
+
+aside h2 {
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+  text-align: center;
+}
+
+/* ---------- nav ---------- */
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+nav ul li a {
+  display: block;
+  padding: 0.5rem 0.8rem;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  border-right: 4px solid transparent;
+  transition: background var(--speed), border-color var(--speed), transform var(--speed);
+}
+
+nav ul li:nth-child(even) a {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+nav ul li a:hover,
+nav ul li a:focus-visible {
+  background: rgba(201, 162, 75, 0.25);
+  border-right-color: var(--gold);
+  transform: translateX(-4px);
+}
+
+nav ul li a[aria-current="page"] {
+  background: var(--gold);
+  color: var(--wine-dark);
+  font-weight: 700;
+}
+
+aside > p {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--blush);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ---------- main ---------- */
+main h2 {
+  font-family: "Frank Ruhl Libre", serif;
+  color: var(--wine);
+  font-size: 1.9rem;
+  margin-bottom: 0.8rem;
+}
+
+main h2::before {
+  content: "❖ ";
+  color: var(--gold);
+}
+
+main p + p {
+  margin-top: 0.7rem;
+}
+
+main > section:not(:last-child) {
+  margin-bottom: 2.5rem;
+}
+
+/* ---------- קישורים מיוחדים (טלפון / מייל) ---------- */
+a[href^="tel:"],
+a[href^="mailto:"] {
+  color: var(--wine);
+  font-weight: 700;
+  text-decoration: underline dotted;
+}
+
+footer a[href^="tel:"],
+footer a[href^="mailto:"] {
+  color: var(--gold);
+}
+
+/* ---------- כפתורים ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.6rem;
+  background: var(--wine);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  border: 2px solid var(--wine);
+  cursor: pointer;
+  font: inherit;
+  transition: background var(--speed), color var(--speed), transform var(--speed);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: transparent;
+  color: var(--wine);
+  transform: translateY(-2px);
+}
+
+/* ---------- footer ---------- */
+footer {
+  background: var(--wine-dark);
+  color: var(--blush);
+  border-top: 4px solid var(--gold);
+  padding: 2% 3%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 2%;
+  text-align: center;
+}
+
+footer > * {
+  flex: 1;
+}
+
+footer h3 {
+  color: var(--gold);
+  font-size: 1.05rem;
+}
+
+footer small {
+  font-size: 0.85rem;
+}
+
+/* ---------- רספונסיביות ---------- */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.9rem;
+  }
+
+  .layout {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .layout > aside {
+    flex: none;
+    width: 100%;
+    align-self: stretch;
+  }
+
+  nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav ul li {
+    flex: 1 1 40%;
+  }
+
+  nav ul li a {
+    text-align: center;
+    border-right: none;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
