@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 330" role="img" aria-label="שמלת ערב">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#27a07c"/>
+      <stop offset="1" stop-color="#0b4636"/>
+    </linearGradient>
+    <radialGradient id="bg" cx=".5" cy=".35" r=".8">
+      <stop offset="0" stop-color="#fbf3e4"/>
+      <stop offset="1" stop-color="#e9d9bd"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="330" fill="url(#bg)"/>
+  <path d="M100 30 V22 a6 6 0 1 1 6 -6" fill="none" stroke="#b07a2a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M100 30 L70 46 M100 30 L130 46" stroke="#b07a2a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M76 44 L86 96 Q100 108 114 96 L124 44 L132 46 L121 104 L138 146 L176 300 Q100 322 24 300 L62 146 L79 104 L68 46 Z" fill="url(#g)"/>
+  <path d="M62 146 L138 146" stroke="#d9a441" stroke-width="5" stroke-linecap="round"/>
+  <path d="M100 150 L84 310 M100 150 L116 310 M100 150 L52 304 M100 150 L148 304" stroke="#ffffff" stroke-opacity=".16" stroke-width="3"/>
+</svg>

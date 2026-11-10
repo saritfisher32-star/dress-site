@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLAMOUR - קולקציית WINTER 2025</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- קישור לקובץ העיצוב הכללי של האתר ולעיצוב האישי לקולקציה -->
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="css/winter2025.css">
+</head>
+<body>
+
+   <!-- Header -->
+    <header>
+        <div class="brand-container">
+            <h1 class="logo-title">GLAMOUR</h1>
+            <div class="sub-bar">
+                <span>השמלה שלך</span>
+                <span>•</span>
+                <a href="tel:0533129919" class="phone">053-3129919</a>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">דף הבית</a></li>
+                <li><a href="about.html">אודות</a></li>
+                <li><a href="contact.html">יצירת קשר</a></li>
+                <li><a href="pdf.html">להורדת הקטלוגים</a></li>
+                <li><a href="order.html">הזמנת תור / טופס</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="collection-title-area">
+            <h2>summer 2026</h2>
+            <p>קולקציית קיץ 2026. לחצי על כל תמונה להגדלה.</p>
+        </div>
+
+        <div class="hero-grid">
+            <div class="grid-item" onclick="openLightbox('images/green1.png')">
+                <img src="images/green1.png" alt="ירוק בקבוק - בסיס כהה">
+                <div class="card-title">ירוק בקבוק - בסיס כהה</div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/green-light base.jpg')">
+                <img src="images/green-light base.jpg" alt="ירוק בקבוק - בסיס בהיר">
+                <div class="card-title">ירוק בקבוק - בסיס בהיר</div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/black-3.jpeg')">
+                <img src="images/black-3.jpeg" alt="שחור">
+                <div class="card-title">שחור</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- חלון הגדלת תמונה (Lightbox) -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="תצוגה מוגדלת">
+    </div>
+
+    <!-- Footer יחיד, מסודר ותקין -->
+    <footer class="site-footer">
+        <div class="footer-item right">
+            <h3>Phone</h3>
+            <a href="tel:0533129919">053-3129919</a>
+        </div>
+        
+        <div class="footer-item center">
+            <h3>WhatsApp</h3>
+            <a href="https://wa.me/972533129919" target="_blank" rel="noopener">Send Message</a>
+        </div>
+        
+        <div class="footer-item left">
+            <h3>Working Hours</h3>
+            <p>Sun–Thu: 10:00–19:00</p>
+        </div>
+        
+        <small class="copyright">© GLAMOUR. All rights reserved.</small>
+    </footer>
+</body>
+</html>

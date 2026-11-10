@@ -1,0 +1,142 @@
+/* ===== about.css - עיצוב יוקרתי, נקי ומרשים לדף אודות ===== */
+
+:root {
+  --brand-brown: #362214;        /* חום כהה עמוק מהלוגו */
+  --brand-brown-light: #4a2e1b;  /* חום ביניים חם */
+  --brand-gold: #e59b38;         /* זהב-נחושת יוקרתי */
+  --brand-gold-soft: #f4d090;    /* זהב בהיר עדין */
+  --text-dark: #2b1a10;          /* טקסט חום-כהה עמוק */
+  --text-muted: #665548;         /* טקסט משני */
+  --border-color: #e8ded4;
+}
+
+body {
+  background-color: #fcfbfa;     /* רקע בהיר כללי לדף */
+  color: var(--text-dark);
+  font-family: 'Heebo', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* מעטפת שמתפרסת על כל רוחב המסך מקצה לקצה */
+.layout {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 4rem 0;
+  overflow: hidden;              /* מונע מהתמונה לחרוג החוצה בצדדים */
+}
+
+/* תמונת רקע מטושטשת שמתפרסת על כל המסך וגבוהה יותר */
+.bg-image {
+  position: absolute;
+  top: -1cm;                     
+  bottom: -1cm;                  
+  left: 0;
+  width: 100vw;                  /* תופס בדיוק 100% מרוחב המסך החיצוני */
+  height: calc(100% + 2cm);      /* הרחבת הגובה ב-2 ס"מ נוספים */
+  object-fit: cover;
+  opacity: 0.50;                 /* שקיפות מותאמת כדי שיראו את התמונה ברקע */
+  filter: blur(10px);            /* טשטוש עדין */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* התוכן עצמו מיושר למרכז עם רווחים צדדיים נעימים לעין */
+main {
+  position: relative;
+  z-index: 1;                    
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* מעטפת ראשית מעוצבת */
+.about-main-luxury {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* תיבת כותרת */
+.about-header-box {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(54, 34, 20, 0.08);
+}
+
+.main-title {
+  font-family: "Frank Ruhl Libre", serif;
+  font-size: 2.3rem;
+   color: var(--brand-brown-light);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.subtitle-en {
+  font-size: 1.1rem;
+  color: var(--brand-gold);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+/* תיבת התוכן המרכזית */
+.about-content-box {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 3rem 2.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(54, 34, 20, 0.08);
+  text-align: center;
+}
+
+.highlight-intro {
+  font-family: "Frank Ruhl Libre", serif;
+  font-size: 1.4rem;
+  color: var(--brand-brown-light);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.about-content-box p {
+  font-size: 1.05rem;
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  font-weight: 300;
+}
+
+.about-content-box strong {
+  color: var(--brand-brown);
+  font-weight: 600;
+}
+
+/* אזור החתימה בסוף */
+.signature-box {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1.5px dashed var(--border-color);
+  text-align: center;
+}
+
+.signature-text {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 0.2rem;
+}
+
+.signature-name {
+  font-family: "Frank Ruhl Libre", serif;
+  font-size: 1.8rem;
+  color: var(--brand-brown);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}

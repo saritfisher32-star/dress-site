@@ -1,0 +1,320 @@
+/* איפוס והגדרות בסיס */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fcfbfa; /* רקע שמנת בהיר */
+    color: #2b2b2b;
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* כותרת עליונה - header */
+header {
+    padding: 40px 20px 20px 20px;
+    text-align: center;
+    background-color: #fcfbfa;
+}
+
+.brand-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* שם המותג */
+.logo-title {
+    font-family: 'Georgia', serif;
+    font-size: 52px;
+    font-weight: 300;
+    letter-spacing: 12px;
+    background: linear-gradient(180deg, #d49a43 0%, #b87a25 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    padding-right: 12px;
+}
+
+/* סלוגן וטלפון */
+.sub-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    color: #8c7355;
+    letter-spacing: 3px;
+}
+
+.sub-bar a {
+    color: #8c7355;
+    text-decoration: none;
+    direction: ltr;
+    font-weight: 500;
+}
+
+/* תפריט ניווט עליון בתוך ה-header */
+nav {
+    border-top: 1px solid #e6e0d8;
+    border-bottom: 1px solid #e6e0d8;
+    padding: 15px 0;
+    margin-top: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #4a403b;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: #b87a25;
+    font-weight: 600;
+}
+
+/* הגדרת אנימציית כניסה עדינה, רכה ואיטית במיוחד */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px); /* מתחיל מעט יותר למטה בשביל אפקט מרשים */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* עיצוב הבאנר הראשי - פריסה מלאה מקצה לקצה עם אנימציה איטית מאוד */
+.main-banner-section {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 35px;
+    overflow: hidden; /* מונע גלישה בזמן האנימציה */
+}
+
+.hero-banner-image {
+    width: 100%;
+    height: auto;
+    max-height: none; 
+    object-fit: contain; 
+    display: block;
+    border-radius: 0;
+    
+    /* תוקן הטשטוש לפורמט הנכון (לדוגמה 20px - תוכלי לשנות לפי בחירתך) */
+    filter: blur(10); 
+    
+    /* שקיפות עדינה כדי שהרקע ישתלב היטב עם העמוד */
+    opacity: 0.85; 
+    
+    /* הארכנו את משך האנימציה ל-3.5 שניות כדי שתהיה איטית ומורגשת מאוד */
+    animation: fadeInUp 5s cubic-bezier(0.15, 1, 0.2, 1) forwards;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-banner-image:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* חלק מרכזי - main עבור הקוביות */
+main {
+    flex: 1;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+}
+
+/* גריד תמונות הקטלוג */
+.hero-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.grid-item {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    background-color: #f2ede4;
+    border: 1px solid #e4dcd0;
+    border-radius: 0; /* פינות ישרות לחלוטין */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    
+    /* אנימציית כניסה תואמת */
+    opacity: 0;
+    animation: fadeInUp 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* השהיה מדורגת קלה לקוביות הקטלוג */
+.hero-grid .grid-item:nth-child(1) { animation-delay: 0.6s; }
+.hero-grid .grid-item:nth-child(2) { animation-delay: 0.9s; }
+.hero-grid .grid-item:nth-child(3) { animation-delay: 1.2s; }
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    border-color: #b87a25;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* כיתוב שם הקולקציה בתחתית התמונה */
+.grid-item .card-title {
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+    left: 0;
+    text-align: center;
+    background-color: rgba(70, 52, 30, 0.85);
+    color: #f6ecdb;
+    padding: 10px;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.grid-item:hover .card-title {
+    background-color: rgba(184, 122, 37, 0.95);
+    color: #fff;
+}
+
+/* כותרת תחתונה - footer */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #f7f3ed;
+    border-top: 1px solid #e6e0d8;
+    font-size: 16px;
+    color: #735d48;
+    font-family: 'Georgia', serif;
+    letter-spacing: 1px;
+}
+
+/* התאמה לרספונסיביות - Media Query */
+@media (max-width: 768px) {
+    .logo-title {
+        font-size: 36px;
+        letter-spacing: 6px;
+    }
+
+    .sub-bar {
+        font-size: 13px;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    .hero-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    main {
+        padding: 0 15px 30px 15px;
+    }
+    
+}
+/* --- עיצוב הפוטר --- */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  direction: rtl;
+  padding: 30px 40px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.footer-item {
+  flex: 1;
+  min-width: 160px; /* מונע מהטורים להתכווץ יותר מדי */
+  margin: 10px 15px; /* מרווחים שווים ואסתטיים בין הטורים */
+  box-sizing: border-box;
+}
+
+.footer-item.right {
+  text-align: right;
+}
+
+.footer-item.center {
+  text-align: center;
+}
+
+.footer-item.left {
+  text-align: left;
+  direction: ltr;
+}
+
+.site-footer h3 {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.site-footer a, 
+.site-footer p {
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.copyright {
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: block;
+  font-size: 13px;
+}
+
+/* התאמה חלקה למסכים בינוניים וקטנים */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 25px 20px;
+    justify-content: center; /* מרכוז האלמנטים כאשר הם יורדים שורה */
+  }
+
+  .footer-item {
+    flex: 1 1 45%; /* מסדר אותם שניים בשורה או אחד מתחת לשני בצורה נעימה */
+    text-align: center !important; /* מרכוז אחיד במסכים קטנים לנוחות קריאה */
+    direction: rtl !important;
+    margin: 10px 0;
+  }
+}

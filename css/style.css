@@ -1,0 +1,383 @@
+/* ===== style.css - הגדרות משותפות לכל דפי האתר (GLAMOUR) ===== */
+
+/* נושא חדש: משתני CSS - הצבעים נלקחו מהלוגו */
+:root {
+  --bg: #46341e;        /* חום הלוגו */
+  --bg-deep: #2c1f11;
+  --gold: #e0a64a;
+  --orange: #d98a2b;
+  --cream: #f6ecdb;     /* צבע בהיר לקונטרסט */
+  --cream-2: #ecdcc0;
+  --ink: #3a2a17;
+  --line: rgba(224, 166, 74, 0.4);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --speed: 0.35s;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  direction: rtl;
+  font-family: "Heebo", Arial, sans-serif;
+  font-weight: 300;
+  background-color: var(--bg);
+  color: var(--cream);
+  line-height: 1.8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- header: בלי רקע, הלוגו משתלב בצבע האתר ---------- */
+header {
+  background: none;
+  text-align: center;
+  padding: 1.5% 3% 1%;
+}
+
+header a {
+  display: inline-block;
+  width: 28%;
+  min-width: 210px;
+  max-width: 320px;
+}
+
+header img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- פריסה: aside + main (flex) ---------- */
+.layout {
+  display: flex;
+  flex: 1;
+  gap: 3%;
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 3% 3% 4%;
+}
+
+.layout > main {
+  flex: 1;
+  min-width: 0;
+}
+
+.layout > aside {
+  flex: 0 0 20%;
+  order: -1;            /* בעברית ההתחלה היא מימין: התפריט בצד ימין */
+  align-self: flex-start;
+  position: sticky;
+  top: 20px;
+  z-index: 10;
+  padding: 6% 4%;
+  border: 1px solid var(--line);
+  outline: 1px solid var(--line);
+  outline-offset: 5px;
+}
+
+aside h2 {
+  color: var(--gold);
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.35em;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* ---------- nav + תת-תפריט קטלוגים ---------- */
+nav ul {
+  list-style: none;
+}
+
+nav > ul {
+  display: flex;
+  flex-direction: column;
+}
+
+nav > ul > li {
+  position: relative;
+}
+
+nav > ul > li:not(:last-child) {
+  border-bottom: 1px solid rgba(224, 166, 74, 0.18);
+}
+
+nav a {
+  display: block;
+  padding: 0.75rem 0.5rem;
+  color: var(--cream);
+  text-decoration: none;
+  letter-spacing: 0.12em;
+  transition: color var(--speed), padding var(--speed);
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--gold);
+  padding-right: 1rem;
+}
+
+nav a[aria-current="page"] {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+nav a[aria-current="page"]::before {
+  content: "◆ ";
+  font-size: 0.6em;
+  vertical-align: middle;
+}
+
+nav li.has-sub > a::after {
+  content: " ‹";
+}
+
+/* התת-תפריט נפתח בצד שמאל של התפריט כשעומדים עם העכבר */
+nav li.has-sub > ul {
+  position: absolute;
+  top: -1px;
+  right: 100%;
+  width: 100%;
+  padding-right: 18%;           /* רווח "שקוף" כדי שהעכבר לא יאבד את התפריט */
+  background: none;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(14px);
+  transition: opacity var(--speed), transform var(--speed), visibility var(--speed);
+}
+
+nav li.has-sub:hover > ul,
+nav li.has-sub:focus-within > ul {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+nav li.has-sub > ul li {
+  background: var(--cream);
+  box-shadow: var(--shadow);
+}
+
+nav li.has-sub > ul li:not(:last-child) {
+  border-bottom: 1px solid var(--cream-2);
+}
+
+nav li.has-sub > ul a {
+  color: var(--ink);
+  letter-spacing: 0.05em;
+}
+
+nav li.has-sub > ul a:hover,
+nav li.has-sub > ul a:focus-visible {
+  color: var(--orange);
+  background: var(--cream-2);
+}
+
+aside > p {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--cream-2);
+}
+
+/* ---------- main: פאנלים בהירים לקונטרסט ---------- */
+main > section {
+  background: var(--cream);
+  color: var(--ink);
+  padding: 5%;
+  outline: 1px solid var(--gold);
+  outline-offset: -12px;
+}
+
+main > section:not(:last-child) {
+  margin-bottom: 4%;
+}
+
+main h2 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 500;
+  font-size: 1.9rem;
+  color: var(--bg);
+}
+
+main h2::before,
+main h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to left, var(--gold), transparent);
+}
+
+main h2::before {
+  background: linear-gradient(to right, var(--gold), transparent);
+}
+
+main p + p {
+  margin-top: 0.8rem;
+}
+
+/* ---------- קישורים מיוחדים (טלפון / וואטסאפ) ---------- */
+a[href^="tel:"] {
+  color: var(--orange);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+a:not(.btn)[href^="https://wa.me"] {
+  color: var(--orange);
+  font-weight: 500;
+}
+
+footer a[href^="tel:"],
+footer a:not(.btn)[href^="https://wa.me"] {
+  color: var(--gold);
+}
+
+/* ---------- כפתורים ---------- */
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 2rem;
+  background: transparent;
+  color: var(--bg);
+  border: 1px solid var(--orange);
+  text-decoration: none;
+  letter-spacing: 0.12em;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  transition: color var(--speed);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold), var(--orange));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--speed);
+  z-index: -1;
+}
+
+.btn:hover::before,
+.btn:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  color: #fff;
+}
+
+/* ---------- footer ---------- */
+footer {
+  background: var(--bg-deep);
+  border-top: 1px solid var(--gold);
+  padding: 3% 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3%;
+  text-align: center;
+}
+
+footer > * {
+  flex: 1;
+}
+
+footer h3 {
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.25em;
+  font-size: 0.95rem;
+}
+
+footer small {
+  align-self: center;
+  color: var(--cream-2);
+  opacity: 0.7;
+}
+
+/* ---------- רספונסיביות ---------- */
+@media (max-width: 800px) {
+  .layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .layout > aside {
+    flex: none;
+    width: 100%;
+    align-self: stretch;
+    position: static;
+    padding: 4%;
+  }
+
+  nav > ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  nav > ul > li {
+    flex: 1 1 45%;
+    border-bottom: none;
+    text-align: center;
+  }
+
+  /* בנייד התת-תפריט נפתח מתחת לקטגוריה */
+  nav li.has-sub > ul {
+    position: static;
+    padding-right: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+    transition: max-height var(--speed);
+  }
+
+  nav li.has-sub:hover > ul,
+  nav li.has-sub:focus-within > ul {
+    max-height: 300px;
+  }
+
+  nav > ul > li:not(:last-child) {
+    border-bottom: none;
+  }
+
+  main h2 {
+    font-size: 1.5rem;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

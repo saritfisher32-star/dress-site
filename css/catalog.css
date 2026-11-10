@@ -1,0 +1,126 @@
+/* --- אזור כותרת הקולקציה --- */
+.collection-title-area {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.collection-title-area h2 {
+    font-family: 'Georgia', serif;
+    font-size: 32px;
+    color: #b87a25;
+    margin-bottom: 8px;
+}
+
+.collection-title-area p {
+    color: #735d48;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+/* --- פריטי הגריד --- */
+.grid-item {
+    cursor: pointer;
+}
+
+/* --- חלון הגדלת התמונה (Lightbox) --- */
+#lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#lightbox img {
+    max-width: 85%;
+    max-height: 80vh;
+    border: 4px solid #f6ecdb;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+#lightbox .close-btn {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- עיצוב הפוטר --- */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  direction: rtl;
+  padding: 30px 40px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.footer-item {
+  flex: 1;
+  min-width: 160px; /* מונע מהטורים להתכווץ יותר מדי */
+  margin: 10px 15px; /* מרווחים שווים ואסתטיים בין הטורים */
+  box-sizing: border-box;
+}
+
+.footer-item.right {
+  text-align: right;
+}
+
+.footer-item.center {
+  text-align: center;
+}
+
+.footer-item.left {
+  text-align: left;
+  direction: ltr;
+}
+
+.site-footer h3 {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.site-footer a, 
+.site-footer p {
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.copyright {
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: block;
+  font-size: 13px;
+}
+
+/* התאמה חלקה למסכים בינוניים וקטנים */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 25px 20px;
+    justify-content: center; /* מרכוז האלמנטים כאשר הם יורדים שורה */
+  }
+
+  .footer-item {
+    flex: 1 1 45%; /* מסדר אותם שניים בשורה או אחד מתחת לשני בצורה נעימה */
+    text-align: center !important; /* מרכוז אחיד במסכים קטנים לנוחות קריאה */
+    direction: rtl !important;
+    margin: 10px 0;
+  }
+}
